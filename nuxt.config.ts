@@ -9,8 +9,12 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxtjs/tailwindcss',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    '@nuxtjs/color-mode'
   ],
+  colorMode: {
+    classSuffix: ''
+  },
   shadcn: {
     /**
      * Prefix for all the imported component.
