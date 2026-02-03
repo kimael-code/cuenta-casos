@@ -13,7 +13,11 @@
     "test:unit": "vitest --project unit",
     "test:nuxt": "vitest --project nuxt",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "@nuxt/eslint": "1.13.0",
@@ -30,6 +34,7 @@
     "@vitest/browser-playwright": "^4.0.18",
     "@vue/test-utils": "^2.4.6",
     "playwright-core": "^1.58.1",
+    "standard-version": "^9.5.0",
     "vitest": "^4.0.18"
   }
 }
