@@ -18,9 +18,12 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major"
+    "release:major": "standard-version --release-as major",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.0",
     "@nuxt/eslint": "1.13.0",
     "@nuxt/fonts": "0.13.0",
     "@nuxt/icon": "2.2.1",
@@ -28,6 +31,7 @@
     "@vueuse/core": "^14.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.45.1",
     "eslint": "^9.39.2",
     "lucide-vue-next": "^0.563.0",
     "nuxt": "^4.3.0",
@@ -41,6 +45,7 @@
     "@playwright/test": "^1.58.1",
     "@vitest/browser-playwright": "^4.0.18",
     "@vue/test-utils": "^2.4.6",
+    "drizzle-kit": "^0.31.8",
     "playwright-core": "^1.58.1",
     "standard-version": "^9.5.0",
     "tailwindcss": "^4.1.18",
