@@ -1,8 +1,29 @@
+<script setup lang="ts">
+import { useSession, signOut } from "@/utils/auth-client";
+import { Button } from "@/components/ui/button";
+
+const session = useSession();
+const user = computed(() => {
+  // Handle if session is a Ref (based on TS feedback) or an object with data Ref
+  const sessionValue = isRef(session) ? session.value : session;
+  return (
+    sessionValue?.data?.user ||
+    sessionValue?.user ||
+    sessionValue?.data?.value?.user
+  );
+});
+
+const handleSignOut = async () => {
+  await signOut();
+  navigateTo("/login");
+};
+</script>
+
 <template>
   <div class="min-h-screen bg-background font-sans antialiased flex flex-col">
     <!-- Navbar -->
     <header
-      class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60"
     >
       <div
         class="container mx-auto px-4 h-14 flex items-center justify-between"
@@ -17,12 +38,22 @@
         </div>
         <div class="flex items-center space-x-4">
           <nav class="flex items-center space-x-2">
-            <NuxtLink
-              to="/login"
-              class="text-sm font-medium transition-colors hover:text-primary"
-              >Iniciar Sesión</NuxtLink
-            >
-            <!-- Button component will go here later -->
+            <ClientOnly>
+              <template v-if="user">
+                <span class="text-sm font-medium mr-2 hidden md:inline-block"
+                  >Hola, {{ user.name }}</span
+                >
+                <Button variant="outline" size="sm" @click="handleSignOut"
+                  >Salir</Button
+                >
+              </template>
+              <NuxtLink
+                v-else
+                to="/login"
+                class="text-sm font-medium transition-colors hover:text-primary"
+                >Iniciar Sesión</NuxtLink
+              >
+            </ClientOnly>
           </nav>
         </div>
       </div>
