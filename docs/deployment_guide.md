@@ -8,7 +8,12 @@ Since you are currently using `local.db`, you need a cloud database for Vercel:
 
 1. Go to [Turso](https://turso.tech/) and create a new database.
 2. Get your **Database URL** and **Auth Token**.
-3. (Optional) Run `npx drizzle-kit push` to upload your schema to the new Turso database.
+3. Run the schema push command against your remote Turso database:
+   ```bash
+   TURSO_DATABASE_URL=libsql://your-db-url TURSO_AUTH_TOKEN=your-token npm run db:push
+   ```
+   > [!IMPORTANT]
+   > Ensure you replace the placeholders with your actual Turso credentials. This step creates the necessary tables (user, session, verification, etc.) in the cloud.
 
 ## 2. GitHub Configuration
 
