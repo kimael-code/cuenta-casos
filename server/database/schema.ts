@@ -55,16 +55,14 @@ export const verification = sqliteTable("verification", {
 });
 
 export const counters = sqliteTable("counters", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+  id: text("id").primaryKey(),
   name: text("name").notNull(),
   count: integer("count").default(0).notNull(),
-  userId: text("user_id").references(() => user.id), // Owner of the counter
-  createdAt: integer("created_at", { mode: "timestamp" })
+  userId: text("user_id")
     .notNull()
-    .$defaultFn(() => new Date()),
-  updatedAt: integer("updated_at", { mode: "timestamp" })
-    .notNull()
-    .$defaultFn(() => new Date()),
+    .references(() => user.id),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
 });
 
 export type Counter = typeof counters.$inferSelect;

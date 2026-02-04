@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxtjs/color-mode",
   ],
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "page", mode: "out-in" },
+  },
   runtimeConfig: {
     public: {
       betterAuthUrl: process.env.BETTER_AUTH_URL || "http://localhost:3000",
