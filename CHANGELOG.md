@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/kimael-code/cuenta-casos/compare/v0.0.2...v0.0.3) (2026-02-04)
+
+
+### Bug Fixes
+
+* update drizzle config to use turso dialect and support remote pushing ([f23e602](https://github.com/kimael-code/cuenta-casos/commit/f23e602a111dbd25ae9fa2af46d4964ab6efcda8))
+
 ### [0.0.2](///compare/v0.0.1...v0.0.2) (2026-02-04)
 
 
