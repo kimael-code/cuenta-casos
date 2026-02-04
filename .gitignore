@@ -31,3 +31,14 @@ test-results/
 *.db
 *.sqlite
 *.sqlite3
+
+# AI Assistant Metadata
+.agent/
+.gemini/
+.claude/
+.codex/
+.opencode/
+.system_generated/
+
+# Keep agents skills and workflows
+!.agents/

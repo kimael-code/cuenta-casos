@@ -3,15 +3,7 @@ import { useSession, signOut } from "@/utils/auth-client";
 import { Button } from "@/components/ui/button";
 
 const session = useSession();
-const user = computed(() => {
-  // Handle if session is a Ref (based on TS feedback) or an object with data Ref
-  const sessionValue = isRef(session) ? session.value : session;
-  return (
-    sessionValue?.data?.user ||
-    sessionValue?.user ||
-    sessionValue?.data?.value?.user
-  );
-});
+const user = computed(() => session.value?.data?.user);
 
 const handleSignOut = async () => {
   await signOut();
@@ -29,12 +21,12 @@ const handleSignOut = async () => {
         class="container mx-auto px-4 h-14 flex items-center justify-between"
       >
         <div class="mr-4 flex">
-          <a
+          <NuxtLink
             class="mr-6 flex items-center space-x-2 font-bold text-lg"
-            href="/"
+            to="/"
           >
             <span>CuentaCasos</span>
-          </a>
+          </NuxtLink>
         </div>
         <div class="flex items-center space-x-4">
           <nav class="flex items-center space-x-2">
