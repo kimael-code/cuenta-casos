@@ -34,7 +34,7 @@ definePageMeta({
           </Button>
           <Button variant="outline" size="lg" as-child>
             <a
-              href="https://github.com/antigravity/cuentacasos"
+              href="https://github.com/kimael-code/cuenta-casos"
               target="_blank"
             >
               GitHub
